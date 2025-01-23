@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Księga Skarg i Zażaleń</title>
+</head>
+<body>
+    <h1>Księga Skarg i Zażaleń</h1>
+    <ul>
+        {% for topic in topics %}
+            <li>
+                <a href="{% url 'topic_detail' pk=topic.pk %}">{{ topic.title }}</a>
+                <p>{{ topic.description }}</p>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

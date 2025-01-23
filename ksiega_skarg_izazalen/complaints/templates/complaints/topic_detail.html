@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ topic.title }}</title>
+</head>
+<body>
+    <h1>{{ topic.title }}</h1>
+    <p>{{ topic.description }}</p>
+
+    <h2>Komentarze:</h2>
+    <ul>
+        {% for comment in comments %}
+            <li>
+                <strong>{{ comment.author }}</strong>: {{ comment.content }} <br>
+                <small>Dodano: {{ comment.created_at }}</small>
+            </li>
+        {% endfor %}
+    </ul>
+
+    <h3>Dodaj komentarz:</h3>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Dodaj komentarz</button>
+    </form>
+</body>
+</html>
